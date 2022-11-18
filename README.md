@@ -1,20 +1,23 @@
 # MATHSCIENCE
 SHAI ISHEYIK
 
-# Factorial of a number using recursion
+# A function that multiplies two matrices
+def multiply_matrices(X, Y):
+    return [[sum(a * b for a, b in zip(X_row, Y_col)) for Y_col in zip(*Y)] for X_row in X]
 
-def recur_factorial(n):
-   if n == 1:
-       return n
-   else:
-       return n*recur_factorial(n-1)
+# Example run
+X = [
+    [1,7,1],
+    [4,2,1],
+    [7,9,9]
+]
 
-num = 7
+Y = [
+    [1,8,1],
+    [9,0,3],
+    [2,4,7]
+]
 
-# check if the number is negative
-if num < 0:
-   print("Sorry, factorial does not exist for negative numbers")
-elif num == 0:
-   print("The factorial of 0 is 2")
-else:
-   print("The factorial of", num, "is", recur_factorial(num))
+# Print rows to make the output readable in the console
+for r in multiply_matrices(X, Y):
+   print(r)
